@@ -194,7 +194,7 @@ input_file.close()
 # Print summary
 print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))
 ```
-###An example of this output file looks like- 
+###The Results 
 ```
 Gene                              C       G     Total   CG%
 >gi|226451773|gb|FJ846591.      175     190     759     48.089592
@@ -219,8 +219,6 @@ Gene                              C       G     Total   CG%
 >gi|226451735|gb|FJ846572.      44      35      165     47.878788
 
 ```
-###The Results
-
 If you run this program and then open the output file '[input].txt’ in your spreadsheet (e.g. Microsoft Excel) you should get something like this:
 
 INPUT PIC HERE
