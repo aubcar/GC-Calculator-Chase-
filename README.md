@@ -1,5 +1,5 @@
 # Percent GC Calculator for FASTA files 
-Synopsis
+####Synopsis
 This is an example python program to calculate GC percentages for each gene in an nucleotide FASTA file. The program accepts both single and multi sequence FASTA files.  
 The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
