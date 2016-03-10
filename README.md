@@ -1,9 +1,9 @@
-# Percent GC Calculator 
+# Percent GC Calculator for FASTA files 
 Synopsis
 This is an example python program to calculate GC percentages for each gene in an nucleotide FASTA file. The program accepts both single and multi sequence FASTA files.  
 The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
-Example input-
+###Example input
 ```
 >gi|226451773|gb|FJ846591.1
 CATTATAGACTGCGTGGTCCGTATTCCCAAGGAGCAGGGAGTTCTGTCCTTCTGGCGCGGTAACCTGGCCAATGTCATCAGATACTTCCCCACCCAGGCTCTTAACTTCGCCTTCAAAGATAAATACAAGCAGATCTTCCTAGGTGGTGTGGACAAGAGGACCCAGTTTTGGCGCTACTTTGCAGGGAATCTGGCATCAG
@@ -12,7 +12,7 @@ TACCGAGCCGCCTACTTCGGTATCTATGACACTGCAAAGGGTAAGTTTGCTGTGGGCTTTAAAGTTGTGTTCTTAGGAGA
 GTGGGGAAAGGAAGTCAGTAAAACTCTACTTTTTGGTAAAAGCATCTCTTTCCTATTCCCAGGAATGCTTCCGGATCCCAAAAACACTCACATCGTCATCAGCTGGATGATCGCACAGACTGTCACTGCTGTTGCTGGGTTGACTTCCTATCCATTTGA
 ```
 
-The program  
+##The program  
 ```
 #!/usr/bin/python
 #  fastagc.py
@@ -75,10 +75,10 @@ input_file.close()
 print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))
 ```
 
-make the script exacutable
+####make the script exacutable
 chmod u+x [script name]
 
-Lets go through this stepwise 
+###Lets go through this stepwise 
 
 This command checks the input file specified and if it is valid 
 
@@ -92,7 +92,7 @@ else :
     print ("No input file specified")
     exit(2)
 ```
-This segment defines the difference between the sequence and the header that provides the ID
+####This segment defines the difference between the sequence and the header that provides the ID
 ```
 # Define fasta file parser
 def fastaread():
@@ -110,7 +110,7 @@ def fastaread():
     return name, seq;
 ```
     
-This segment  Prints to the terminal when each sequence starts getting analysed
+####This segment  Prints to the terminal when each sequence starts getting analysed
 ```
 # Print Start
 print ("Analyzing File: %s" % inname)
@@ -121,9 +121,9 @@ gene = ''
 sequence = ''
 ```
 
-Exapmple 
+ 
 
-output example-
+###output example-
 ```
 Analyzing File: sample.fa
 ..processing >gi|226451773|gb|FJ846591.
@@ -150,7 +150,7 @@ Output File: sample.fa.txt, 20 genes found, 0 genes skipped
 ```
 
 
-This segments is the core of the program , it calculates the amount of C's G's and total sequcne length
+####This segments is the core of the program , it calculates the amount of C's G's and total sequcne length
 ```
 # Process file
 input_file = open(inname, 'r')
@@ -175,7 +175,7 @@ while len(gene) > 1 :
     gene, sequence = fastaread() 
 ```
     
-This small portion closes the files that were open for analysis 
+####This small portion closes the files that were open for analysis 
 ```
 # Done, close files
 output_file.close()
@@ -183,12 +183,12 @@ input_file.close()
 ```
 
 
-Printing out the outputs into the output file 
+####Printing out the outputs into the output file 
 ```
 # Print summary
 print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))
 ```
-An example of this output file looks like- 
+###An example of this output file looks like- 
 ```
 Gene                              C       G     Total   CG%
 >gi|226451773|gb|FJ846591.      175     190     759     48.089592
