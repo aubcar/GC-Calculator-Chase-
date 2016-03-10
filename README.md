@@ -6,14 +6,17 @@ Script for calculating the percent GC in a fasta file.
 The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
 Example input-
+```
 >gi|226451773|gb|FJ846591.1
 CATTATAGACTGCGTGGTCCGTATTCCCAAGGAGCAGGGAGTTCTGTCCTTCTGGCGCGGTAACCTGGCCAATGTCATCAGATACTTCCCCACCCAGGCTCTTAACTTCGCCTTCAAAGATAAATACAAGCAGATCTTCCTAGGTGGTGTGGACAAGAGGACCCAGTTTTGGCGCTACTTTGCAGGGAATCTGGCATCAG
 GTGGTGCCGCAGGGGCCACATCCCTGTGTTTTGTGTACCCTCTTGATTTTGCCCGTACCCGTCTAGCAGCTGATGTGGGTAAAGCTGGAGCTGAAAGGGAATTCCGAGGCCTCGGTGACTGCCTGGTTAAGATCTACAAATCTGATGGGATTAAGGGCCTGTACCAAGGCTTTAACGTGTCTGTGCAGGGTATTATCATC
 TACCGAGCCGCCTACTTCGGTATCTATGACACTGCAAAGGGTAAGTTTGCTGTGGGCTTTAAAGTTGTGTTCTTAGGAGACAATTTAAAAGAGCGTTGTACCAACCTAACATTCCAAGAGCTAGAGAGTTTTTTTAATTGCTGAAGGAAGCCAAGATCATCCAGTGCGACCCTCATGCACAGATGACATGTTTAGGGGAT
 GTGGGGAAAGGAAGTCAGTAAAACTCTACTTTTTGGTAAAAGCATCTCTTTCCTATTCCCAGGAATGCTTCCGGATCCCAAAAACACTCACATCGTCATCAGCTGGATGATCGCACAGACTGTCACTGCTGTTGCTGGGTTGACTTCCTATCCATTTGA
+```
 
 The program  
-```#!/usr/bin/python
+```
+#!/usr/bin/python
 #  fastagc.py
 #
 from sys import argv
@@ -71,7 +74,8 @@ while len(gene) > 1 :
 output_file.close()
 input_file.close()
 # Print summary
-print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))```
+print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))
+```
 
 make the script exacutable
 chmod u+x [script name]
@@ -79,6 +83,7 @@ chmod u+x [script name]
 Lets go through this stepwise 
 
 This command checks the input file specified and if it is valid 
+
 ```
 from sys import argv
 # Get args passed
@@ -87,11 +92,11 @@ if len(argv) > 1 :
     outname = inname + '.txt'
 else :
     print ("No input file specified")
-    exit(2)```
-
+    exit(2)
+```
 This segment defines the difference between the sequence and the header that provides the ID
-
-```# Define fasta file parser
+```
+# Define fasta file parser
 def fastaread():
     global record
     name = ''
@@ -104,20 +109,24 @@ def fastaread():
     while len(record) > 1 and not record.startswith(">"):
         seq += record.strip()
         record = input_file.readline()
-    return name, seq;```
+    return name, seq;
+```
     
 This segment  Prints to the terminal when each sequence starts getting analysed
-```# Print Start
+```
+# Print Start
 print ("Analyzing File: %s" % inname)
 gene_count = 0
 bad_gene_count = 0
 record = ''
 gene = ''
-sequence = '' ``` 
+sequence = ''
+```
 
 Exapmple 
 
 output example-
+```
 Analyzing File: sample.fa
 ..processing >gi|226451773|gb|FJ846591.
 ..processing >gi|226451771|gb|FJ846590.
@@ -140,11 +149,12 @@ Analyzing File: sample.fa
 ..processing >gi|226451737|gb|FJ846573.
 ..processing >gi|226451735|gb|FJ846572.
 Output File: sample.fa.txt, 20 genes found, 0 genes skipped 
+```
 
 
 This segments is the core of the program , it calculates the amount of C's G's and total sequcne length
-
-```# Process file
+```
+# Process file
 input_file = open(inname, 'r')
 output_file = open(outname,'w')
 output_file.write('Gene\tC\tG\tTotal\tCG%\n')
@@ -164,16 +174,22 @@ while len(gene) > 1 :
         print ("Skipping invalid format ID record")
         print ("gene:",gene)
         bad_gene_count += 1
-    gene, sequence = fastaread() ``` 
+    gene, sequence = fastaread() 
+```
     
 This small portion closes the files that were open for analysis 
-```# Done, close files
+```
+# Done, close files
 output_file.close()
-input_file.close() ```
-Printing out the outputs into the output file 
-```# Print summary
-print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count)) ```
+input_file.close()
+```
 
+
+Printing out the outputs into the output file 
+```
+# Print summary
+print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))
+```
 An example of this output file looks like- 
 ```
 Gene                              C       G     Total   CG%
