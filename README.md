@@ -1,8 +1,6 @@
 # Percent GC Calculator 
-A shell script writtin in python for inputting a single or multisequence fasta file to report the number of G's C's and total lengh along with the percent GC content of each sequence. 
-
 Synopsis
-Script for calculating the percent GC in a fasta file. 
+This is an example python program to calculate GC percentages for each gene in an nucleotide FASTA file. The program accepts both single and multi sequence FASTA files.  
 The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
 Example input-
