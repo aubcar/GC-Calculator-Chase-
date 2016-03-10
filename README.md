@@ -3,7 +3,7 @@ A shell script writtin in python for inputting a single or multisequence fasta f
 
 Synopsis
 Script for calculating the percent GC in a fasta file. 
-The input file should be in .fa ending, the output file will be <inputfile>.fa.txt
+The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
 Example input-
 >gi|226451773|gb|FJ846591.1
@@ -174,7 +174,7 @@ Printing out the outputs into the output file
 ```# Print summary
 print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count)) ```
 
-An example of this output file looks like 
+An example of this output file looks like- 
 
 Gene                              C       G     Total   CG%
 >gi|226451773|gb|FJ846591.      175     190     759     48.089592
