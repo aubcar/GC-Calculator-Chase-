@@ -175,7 +175,7 @@ Printing out the outputs into the output file
 print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count)) ```
 
 An example of this output file looks like- 
-
+```
 Gene                              C       G     Total   CG%
 >gi|226451773|gb|FJ846591.      175     190     759     48.089592
 >gi|226451771|gb|FJ846590.      175     190     759     48.089592
@@ -198,4 +198,4 @@ Gene                              C       G     Total   CG%
 >gi|226451737|gb|FJ846573.      174     190     759     47.957839
 >gi|226451735|gb|FJ846572.      44      35      165     47.878788
 
-
+```
