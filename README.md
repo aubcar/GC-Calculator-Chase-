@@ -4,9 +4,10 @@ This is an example python program to calculate GC percentages for each gene in a
 The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
 ##Motivation
-You may be wondering why is GC percentage an interest to investigators. In double stranded DNA, C and G nucleotides are joined by three hydrogen bonds, inversely A’s and T’s are bound only by two.  As such, CG pairs are stronger than AT pairings, so the ratio of GC to AT pairs in a sequence can have a strong effect on the physical strength of a sequence. The more GC pairs a sequence contains the harder it is to melt two strands apart. Researchers often call regions AT rich or GC rich for this reason.
+You may be wondering why is GC percentage an interest to investigators. In double stranded DNA, C and G nucleotides are joined by three hydrogen bonds, inversely A’s and T’s are bound only by two.  As such, CG pairs are stronger than AT pairings, so the ratio of GC to AT pairs in a sequence can have a strong effect on the physical strength of a sequence. The more GC pairs a sequence contains the harder it is to melt two strands apart. Researchers often call regions AT rich or GC rich for this reason. It is well documented in the literature that different organisms have a different GC ratio for their given genomes , and this is partially driven by the environment they live in. 
 
 ###Example input
+Most FASTA files will have additional (optional) information about each gene as part of the title line (the single lines starting > before the sequence).
 ```
 >gi|226451773|gb|FJ846591.1
 CATTATAGACTGCGTGGTCCGTATTCCCAAGGAGCAGGGAGTTCTGTCCTTCTGGCGCGGTAACCTGGCCAATGTCATCAGATACTTCCCCACCCAGGCTCTTAACTTCGCCTTCAAAGATAAATACAAGCAGATCTTCCTAGGTGGTGTGGACAAGAGGACCCAGTTTTGGCGCTACTTTGCAGGGAATCTGGCATCAG
@@ -14,6 +15,8 @@ GTGGTGCCGCAGGGGCCACATCCCTGTGTTTTGTGTACCCTCTTGATTTTGCCCGTACCCGTCTAGCAGCTGATGTGGGT
 TACCGAGCCGCCTACTTCGGTATCTATGACACTGCAAAGGGTAAGTTTGCTGTGGGCTTTAAAGTTGTGTTCTTAGGAGACAATTTAAAAGAGCGTTGTACCAACCTAACATTCCAAGAGCTAGAGAGTTTTTTTAATTGCTGAAGGAAGCCAAGATCATCCAGTGCGACCCTCATGCACAGATGACATGTTTAGGGGAT
 GTGGGGAAAGGAAGTCAGTAAAACTCTACTTTTTGGTAAAAGCATCTCTTTCCTATTCCCAGGAATGCTTCCGGATCCCAAAAACACTCACATCGTCATCAGCTGGATGATCGCACAGACTGTCACTGCTGTTGCTGGGTTGACTTCCTATCCATTTGA
 ```
+
+The corresponding output file is here, (link this) , part of which is displayed (later link this) in this document.
 
 ##The program  
 ```
@@ -178,7 +181,7 @@ while len(gene) > 1 :
     gene, sequence = fastaread() 
 ```
     
-####This small portion closes the files that were open for analysis 
+####Now we have finished all the genes, we can close the output and input files:
 ```
 # Done, close files
 output_file.close()
@@ -216,3 +219,13 @@ Gene                              C       G     Total   CG%
 >gi|226451735|gb|FJ846572.      44      35      165     47.878788
 
 ```
+###The Results
+
+If you run this program and then open the output file '[input].txt’ in your spreadsheet (e.g. Microsoft Excel) you should get something like this:
+
+INPUT PIC HERE
+
+
+###Future progression 
+This program could easily be modified to calculate all A’s T’s C’s G’s and then do any summary statistic on any of the motif percentages 
+
