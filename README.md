@@ -226,5 +226,5 @@ INPUT PIC HERE
 
 
 ####Future progression 
-This program could easily be modified to calculate all A’s T’s C’s G’s and then do any summary statistic on any of the motif percentages 
+This program could easily be modified to calculate all A’s T’s C’s G’s and then do any summary statistic on any of the motif percentages. 
 
