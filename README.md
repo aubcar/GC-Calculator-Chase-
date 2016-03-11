@@ -1,9 +1,10 @@
 # Percent GC Calculator for FASTA files 
-####Synopsis
+
+###Synopsis
 This is an example python program to calculate GC percentages for each gene in an nucleotide FASTA file. The program accepts both single and multi sequence FASTA files.  
 The input file should be in .fa ending, the output file will be inputfile.fa.txt
 
-##Motivation
+###Motivation
 You may be wondering why is GC percentage an interest to investigators. In double stranded DNA, C and G nucleotides are joined by three hydrogen bonds, inversely A’s and T’s are bound only by two.  As such, CG pairs are stronger than AT pairings, so the ratio of GC to AT pairs in a sequence can have a strong effect on the physical strength of a sequence. The more GC pairs a sequence contains the harder it is to melt two strands apart. Researchers often call regions AT rich or GC rich for this reason. It is well documented in the literature that different organisms have a different GC ratio for their given genomes , and this is partially driven by the environment they live in. 
 
 ###Example input
@@ -84,9 +85,9 @@ print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count
 ####make the script exacutable
 chmod u+x [script name]
 
-###Lets go through this stepwise 
+##Analysis of script components 
 
-This command checks the input file specified and if it is valid 
+####This command checks the input file specified and if it is valid 
 
 ```
 from sys import argv
@@ -129,7 +130,7 @@ sequence = ''
 
  
 
-###output example-
+####output example-
 ```
 Analyzing File: sample.fa
 ..processing >gi|226451773|gb|FJ846591.
@@ -194,7 +195,7 @@ input_file.close()
 # Print summary
 print ("Output File: %s, %i genes found, %i genes skipped" % (outname,gene_count,bad_gene_count))
 ```
-###The Results 
+##The Results 
 ```
 Gene                              C       G     Total   CG%
 >gi|226451773|gb|FJ846591.      175     190     759     48.089592
@@ -224,6 +225,6 @@ If you run this program and then open the output file '[input].txt’ in your sp
 INPUT PIC HERE
 
 
-###Future progression 
+####Future progression 
 This program could easily be modified to calculate all A’s T’s C’s G’s and then do any summary statistic on any of the motif percentages 
 
