@@ -1,7 +1,7 @@
 # Percent GC Calculator for FASTA files 
 
 ###Synopsis
-This is an example python program to calculate GC percentages for each gene in an nucleotide FASTA file. The program accepts both single and multi sequence FASTA files.  The input file should be a fasta file , the output file will be inputfile.fa.txt
+This is an example python program to calculate GC percentages for each gene in an nucleotide FASTA file. The program accepts both single and multi sequence FASTA files.  The input file should be a fasta file , the output file will be (inputfile).fa.txt
 
 ###Motivation
 You may be wondering why is GC percentage an interest to investigators. In double stranded DNA, C and G nucleotides are joined by three hydrogen bonds, inversely A’s and T’s are bound only by two.  As such, CG pairs are stronger than AT pairings, so the ratio of GC to AT pairs in a sequence can have a strong effect on the physical strength of a sequence. The more GC pairs a sequence contains the harder it is to melt two strands apart. Researchers often call regions AT rich or GC rich for this reason. It is well documented in the literature that different organisms have a different GC ratio for their given genomes , and this is partially driven by the environment they live in. 
