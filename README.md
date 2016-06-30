@@ -17,7 +17,7 @@ GTGGGGAAAGGAAGTCAGTAAAACTCTACTTTTTGGTAAAAGCATCTCTTTCCTATTCCCAGGAATGCTTCCGGATCCCA
 ```
 
 ##The program  
-```
+```{py}
 #!/usr/bin/python
 #  fastagc.py
 #
